@@ -1,5 +1,6 @@
 # vWAN-Routing-Intent-with-Forced-Tunneling
 
+
 # Intro
 In this article we are going to discuss about Azure Virtual WAN with Routing Intent enabled For Internet inspection (Internet Breakout) while also force tunneling from on-premise. Often there are requirements to force tunnel onprem for inspection or regulatory requirements. For this reason, folks sometimes want to do both. They want to inspect inside the vhub, but also still send that traffic on-premise to be inspected! This force tunneling can be over IPSEC, SDWan, or Express-Route. For demonstration purposes, I am going to advertise a 0.0.0.0/0 from on-premise over express-route via BGP while also enabling routing intent on the virtual hub and checking that behavior. We will go over various work-arounds to this behavior and also other gotchas that it affects as well! Information on what routing intent is, can be found [here](https://learn.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies)
 
