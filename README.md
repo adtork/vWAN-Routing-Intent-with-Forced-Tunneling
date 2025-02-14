@@ -19,5 +19,6 @@ We can see the first line, that the circuit is learning 0.0.0.0/ from on-premise
 We can see the VM is learnign the 0.0.0.0/0 with next hop the MSEE Physical Address. Egress traffic for Express-Route bypasses the GW and the next hop is the [MSEE physical address](https://github.com/adtork/ExpressRoute--What-is-this-IP-/blob/main/README.md).
 Ignore the other prefixes, this same circuit is also hooked to another vWAN, so we can ignore for now. Now, lets enable routing intent for internet breakout in the Azure Firewall inside the vhub and re-check the circuit and VM effective routes!
 <br>
+<br>
 ![image](https://github.com/user-attachments/assets/937d73ee-f979-4b68-9d12-b948058f8f9b)
 
