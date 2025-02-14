@@ -14,7 +14,7 @@ In this article we are going to discuss about Azure Virtual WAN with Routing Int
 # Simple Base Topology
 ![image](https://github.com/user-attachments/assets/4cb363ae-a85a-499a-8ad7-46405b435035)
 
-# What happens when I advertise 0/0 from On-Premise and RI injects 0/0 down Express-Route and up to Spokes?
+# What happens when I advertise 0.0.0.0/0 from On-Premise and RI injects 0.0.0.0/0 down Express-Route and up to Spokes?
 
 > [!NOTE]
 > When testing propogation of the default route (0.0.0.0/0), this is assuming you are allowing default route propogation at the circuit level in the vwan hub is using Express-Route, and also at the connetion level. If either of these are turned off, the default route will not be propogated either by the circuit level, or from the secured vhub injecting the 0.0.0.0/0 route to spokes that are vnet peered to the vhub!
