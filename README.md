@@ -7,6 +7,9 @@ In this article we are going to discuss about Azure Virtual WAN with Routing Int
 > Officially advertising a 0.0.0.0/0 from On-Premise while also enabling routing-intent for internet breakout is NOT supported at the time of this article, and we will demonstrate below why! This is mentioned via this [link](https://learn.microsoft.com/en-us/azure/firewall/forced-tunneling)
 > ![image](https://github.com/user-attachments/assets/8d1be4b9-3d90-4524-9987-f0e4d135c011)
 
+> [!NOTE]
+> The other point to make, if this was dual vhub topology (inter-hub) the 0.0.0.0/0 route does not [propogate across hubs](https://learn.microsoft.com/en-us/azure/virtual-wan/about-virtual-hub-routing#considerations). The quad zero route is confined per hub!
+
 # Simple Base Topology
 ![image](https://github.com/user-attachments/assets/4cb363ae-a85a-499a-8ad7-46405b435035)
 
