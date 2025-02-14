@@ -64,7 +64,7 @@ The short answer, sort of! If you still want to advertise a default route from o
 > [!NOTE]
 There is also another work-around, but I have tested this and it **breaks Azure Bastion** for example if you're using that service! I would **not** recommended this as some other componet services inside Azure are dependant on reaching out to Azure IPs for control plane updates and doing this could cause issues. Technically though, you can split the 0.0.0.0/0 into smaller networks of (128.0.0.0/1 and 0.0.0.0/1) and advertise those. In this design, you would still leave off routing intent or use the stacked vnet design. Since these networks are more specific then 0.0.0.0/0, traffic will still follow that route back on-premise, as well as go through the NVA/ Azure Firewall inside the vhub if steering with UDRs. This however breaks Bastion, and I have not tested it on other services! 
 
-**Officially though per Azure documentation, you cannot enable routing-intent inside the vhub and enable force tunneling from on-premise, as it will not honor that route on-prem but instead pick Azure for inspection!** 
+**Officially though per Azure documentation, you cannot enable routing-intent inside the vhub and enable force tunneling from on-premise, as it will not honor that route from on-prem but instead pick Azure for inspection!** 
 
 
 
