@@ -41,6 +41,7 @@ Ignore the other prefixes, this same circuit is also hooked to another vWAN, so 
 <br>
 **Now, lets enable routing intent for internet breakout in the Azure Firewall inside the vhub and re-check the circuit, on-premise and VM effective routes!**
 <br>
+<br>
 ![image](https://github.com/user-attachments/assets/7b3bb4b5-8d5b-43c7-a634-8b68e0b44ad2)
 <br>
 <br>
