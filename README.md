@@ -14,13 +14,28 @@ In this article we are going to discuss about Azure Virtual WAN with Routing Int
 ![image](https://github.com/user-attachments/assets/4cb363ae-a85a-499a-8ad7-46405b435035)
 
 # What happens when I advertise 0/0 from OnPrem and RI injects 0/0 down Express-Route and the Spoke?
+
+> [!NOTE]
+> When testing propogation of the default route (0.0.0.0/0), this is assuming you are allowing default route propogation at the circuit level in the vwan hub, and also at the connetion level. If either of these are turned off, the default route will not be propogated either by the circuit level, or from the secured vhub injecting the 0.0.0.0/0 route! 
+> <br>
+> <br>
+Circuit Level at the vHub:
+> <br>
+> <br>
+> ![image](https://github.com/user-attachments/assets/233ad03d-3ac5-4550-9026-d038da26c2e6)
+> <br>
+> <br>
+Vnet Peering to the vHub:
+> <br>
+> ![image](https://github.com/user-attachments/assets/7c093b4e-5d5a-45be-bd0c-1c5b7df7eed1)
+
 First, lets check to see that express-route is learning the default route from On-Prem and also lets check the effective routes of the VM in our hub vnet before enabling routing-intent on our vWAN hub!
 ![image](https://github.com/user-attachments/assets/33ab8e4e-3549-429f-839e-97ae6cc57bba)
 We can see the first line, that the circuit is learning 0.0.0.0/ from on-premise and we can see the other two prefixes as well the 10.4.0.0/16 and 10.0.0.0/24 from On-Prem. Lets go ahead and check the VM effective routes of the VM in the hub as well:
 ![image](https://github.com/user-attachments/assets/0b45cb4d-ab1d-44cb-a7f7-954027aaa9f4)
 <br>
 We can see the VM is learnign the 0.0.0.0/0 with next hop the MSEE Physical Address. Egress traffic for Express-Route bypasses the GW and the next hop is the [MSEE physical address](https://github.com/adtork/ExpressRoute--What-is-this-IP-/blob/main/README.md).
-Ignore the other prefixes, this same circuit is also hooked to another vWAN, so we can ignore for now. Now, lets enable routing intent for internet breakout in the Azure Firewall inside the vhub and re-check the circuit and VM effective routes!
+Ignore the other prefixes, this same circuit is also hooked to another vWAN, so we can ignore for now. Now, lets enable routing intent for internet breakout in the Azure Firewall inside the vhub and re-check the circuit, on-premise and VM effective routes!
 <br>
 <br>
 
