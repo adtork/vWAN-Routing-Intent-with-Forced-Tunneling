@@ -45,7 +45,7 @@ Next, lets take a look at the express-route circuit learned routes to see what c
 Now we can see that we are no longer learning the 0.0.0.0/0 from On-Prem anymore and the express-route gateway is injecting those routes to the MSEE, which in turn sends them down to on-prem. Now, lets look at the VM effective routes in the hub as well!
 ![image](https://github.com/user-attachments/assets/0adda907-25b6-47e5-920a-4679f7256078)
 <br>
-We can see the VM is now learning the 0.0.0.0/0 via the internal FW IP inside the vhub and no longer hairpinning down and following on-prem like before. So, what does this really mean overall? It means the 0.0.0.0/0 being injectded via routing-itent won over the 0.0.0.0/ being advertised from on-premise and you cannot do both! As we saw, the VM picks the default route being injected by vWAN and no longer learns from on-prem. On-prem in turns learns the 0.0.0.0/0 as well from the vhub! 
+We can see the VM is now learning the 0.0.0.0/0 via the internal FW IP inside the vhub and no longer hairpinning down and following on-prem like before. So, what does this really mean overall? It means the 0.0.0.0/0 being injected via routing-itent won over the 0.0.0.0/ being advertised from on-premise and you cannot do both! As we saw, the VM picks the default route being injected by vWAN and no longer learns from on-prem. On-prem in turns learns the 0.0.0.0/0 as well from the vhub! 
 
 
 
