@@ -59,7 +59,7 @@ The short answer, sort of! If you still want to advertise a default route from o
 > [!NOTE]
 There is also another sudo work-around, but I have tested this and it **breaks Azure Bastion** for example if you're using that service! I would **not** recommended this either as some other componnet services inside Azure are dependant on reaching out to Azure IPs for control plane updates and doing this could potentially cause issues. Technically though, you can split the 0.0.0.0/0 into smaller networks of 128.0.0.0/1 and 0.0.0.0/1. Since those networks are more specific then 0.0.0.0/0, traffic will still follow that route back on-premise, as well as go through the NVA/ Azure Firewall inside the vhub. This however totally breaks Bastion and I have not tested it on other services! 
 
-Officially though as we saw, you cannot do both unless you don't turn off routing intent, or break the Azure Firewall/NVA out in a spoke which sort of defeats the purpose of using routing intent! 
+Officially though per Azure documentation, you cannot enable routing-intent inside the vhub and enable force tunneling from on-premise, as it will not follow that route on-prem but pick Azure for inspection! 
 
 
 
