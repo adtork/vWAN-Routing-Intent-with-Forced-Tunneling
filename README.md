@@ -1,4 +1,4 @@
-# vWAN-Routing-Intent-with-Forced-Tunneling -0.0.0.0/0 Route
+# vWAN-Routing-Intent-with-Forced-Tunneling 0.0.0.0/0 Route
 
 
 # Intro
